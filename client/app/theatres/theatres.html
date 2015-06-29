@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6 movie-list"
+    ng-repeat="theatre in vm.theatres">
+
+    <div class="thumbnail">
+
+      <div class="caption">
+
+        <p>
+          <a ui-sref="theatres_movies({theatre: theatre.id})"
+            ng-bind="theatre.name"></a>
+        </p>
+
+        <a class="btn btn-default"
+          ui-sref="theatres_movies({theatre: theatre.id})">
+          See Movies
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>

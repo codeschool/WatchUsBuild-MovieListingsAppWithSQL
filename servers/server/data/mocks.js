@@ -159,6 +159,79 @@ var allShowtimes = new Promise(function(resolve) {
 
 });
 
+/**
+ * All theatre movies
+ */
+var allTheatreMovies = new Promise(function(resolve) {
+
+  resolve([
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    },
+    {
+      id: 1,
+      title: 'Sample Movie',
+      showtimes: [
+        '11:00 AM',
+        '2:00 PM',
+        '5:00 PM'
+      ]
+    }
+  ]);
+
+});
+
 var oneTheatre = new Promise(function (resolve) {
   resolve({
     id: 1,
@@ -175,7 +248,8 @@ module.exports = {
 
   theatres: {
     all: allTheatres,
-    one: oneTheatre
+    one: oneTheatre,
+    allMovies: allTheatreMovies
   },
 
   showtimes: {
