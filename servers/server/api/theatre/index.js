@@ -19,8 +19,8 @@ var queryOneTheatre = 'SELECT t.id, t.name FROM theatres t WHERE id = ?';
 router.get('/:theatre', function(req, res) {
 
 
-  db.query(queryOneTheatre, req.params.theatre, 'one')
-  // mockData.theatres.one
+  // db.query(queryOneTheatre, req.params.theatre, 'one')
+  mockData.theatres.one
     .then(function(theatre) {
       console.log('theatre', theatre);
       res.json({
