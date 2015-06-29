@@ -6,8 +6,7 @@
     "json3": "~3.3.1",
     "es5-shim": "~3.0.1",
     "jquery": "~1.11.0",
-    "bootstrap-sass-official": "~3.1.1",
-    "bootstrap": "~3.1.1",
+    "bootstrap-sass-official": "~3.3.5",
     "angular-sanitize": ">=1.2.*",
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
@@ -21,12 +20,6 @@
   "overrides": {
     "font-awesome": {
       "main": "./css/font-awesome.css"
-    },
-    "bootstrap": {
-      "main": [
-        "./dist/css/bootstrap.css",
-        "./dist/js/bootstrap.js"
-      ]
     }
   }
 }
