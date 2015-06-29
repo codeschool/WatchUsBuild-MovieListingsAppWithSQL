@@ -1,0 +1,33 @@
+<h1 ng-bind="vm.movie.title"></h1>
+
+<h2>List of Theatres Playing movie</h2>
+
+<ul class="media-list theatre-list">
+  <li class="media" ng-repeat="theatre in vm.theatres">
+    <div class="media-left media-middle">
+      <a class="media-placeholder"
+        ui-sref="movies_showtimes({movie: vm.movie.id, theatre: theatre.id})"></a>
+    </div>
+
+
+    </div>
+
+    <div class="media-body">
+      <h4 ng-bind="theatre.name"></h4>
+      <p ng-pluralize
+        count="theatre.showtimesCount"
+        when="{'0': 'No showtimes',
+               '1': '1 showtime',
+               'other': '{{theatre.showtimesCount}} showtimes'}">
+      </p>
+    </div>
+
+    <div class="media-right media-middle">
+      <a class="btn btn-default"
+        ui-sref="movies_showtimes({movie: vm.movie.id, theatre: theatre.id})"
+        ng-disabled="!theatre.showtimesCount">
+        See showtimes
+      </a>
+    </div>
+  </li>
+</ul>

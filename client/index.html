@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>moviesApp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- HEAD -->
+    <!-- build:css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    
+    <!-- styles:css -->
+    <link rel="stylesheet" href="/styles/app.css">
+    <!-- endinject -->
+    
+    
+    <!-- END:HEAD -->
+
+  </head>
+  <body ng-app="moviesApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" ui-sref="movies">Movies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container content">
+      <div ui-view></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>Movies Demo App</p>
+      </div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- BODY -->
+    <!-- build:js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- vendor:js -->
+    <script src="vendor/socket.io.js"></script>
+    <!-- endinject -->
+    <script src="socket.io-client/socket.io.js"></script>
+    
+    <!-- root:js -->
+    <!-- endinject -->
+    
+    <!-- bundle:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/movies/movies.controller.js"></script>
+    <script src="/app/movies/movies.js"></script>
+    <script src="/app/factories/logger/logger.factory.js"></script>
+    <script src="/app/movies/movies-showtimes/movies-showtimes.controller.js"></script>
+    <script src="/app/movies/movies-theatres/movies-theatres.controller.js"></script>
+    <!-- endinject -->
+    
+    <!-- templates:js -->
+    <script src="/templates/cached_html_templates.js"></script>
+    <!-- endinject -->
+    <!-- END:BODY -->
+
+
+    </body>
+</html>

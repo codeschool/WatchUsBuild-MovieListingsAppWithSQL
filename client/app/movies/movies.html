@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6 movie-list"
+    ng-repeat="movie in vm.movies">
+
+    <div class="thumbnail">
+      <a ui-sref="movies_theatres({movie: movie.id})" class="movie-cover"></a>
+
+      <div class="caption">
+
+        <a class="movie-title"
+          ui-sref="movies_theatres({movie: movie.id})"
+          ng-bind="movie.title"></a>
+
+        <p ng-pluralize
+          count="movie.theatresCount"
+          when="{'0': 'No theatres playing',
+                 '1': 'Playing in 1 theatre',
+                 'other': 'Playing in {{movie.theatresCount}} theatres'}">
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
