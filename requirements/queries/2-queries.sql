@@ -11,7 +11,7 @@ SELECT m.id, m.title FROM movies m WHERE id = 1;
 
 -- 3) List of theatres playing a movie
 SELECT t.id, t.name, (
-  SELECT count(*)
+  SELECT COUNT(*)
   FROM showtimes
   WHERE theatre_id = t.id
   AND movie_id = s.movie_id
@@ -30,3 +30,21 @@ SELECT s.time
 FROM showtimes s
 WHERE movie_id = 1
 AND theatre_id = 2;
+
+
+-- 6) List of theatres
+SELECT id, name
+FROM theatres
+
+-- 7) List of movies playing in a theatre
+SELECT m.id, m.title
+FROM showtimes s
+INNER JOIN movies m ON s.movie_id = m.id
+WHERE s.theatre_id = 1
+GROUP BY s.movie_id
+
+-- 8) List of showtimes playing in a
+SELECT time
+FROM showtimes
+WHERE theatre_id = 1
+AND movie_id = 2

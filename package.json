@@ -111,7 +111,7 @@
     "yargs": "*"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.12.5"
   },
   "scripts": {
     "start": "node servers/server/app.js",

@@ -35,14 +35,20 @@
         <div class="container">
           <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+            <button type="button" class="navbar-toggle collapsed" ng-click="collapse=!collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" ui-sref="movies">Movies</a>
+            <a class="navbar-brand">Soup to Bits</a>
+          </div>
+          <div class="navbar-collapse collapse" ng-class="{ in: !!collapse }">
+            <ul class="nav navbar-nav">
+              <li><a ui-sref="movies">Movies</a></li>
+              <li><a ui-sref="theatres">Theatres</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -88,13 +94,15 @@
     <script src="/app/app.js"></script>
     <script src="/app/movies/movies.controller.js"></script>
     <script src="/app/movies/movies.js"></script>
+    <script src="/app/theatres/theatres.controller.js"></script>
+    <script src="/app/theatres/theatres.js"></script>
+    <script src="/app/factories/logger/logger.factory.js"></script>
     <script src="/app/movies/movies-showtimes/movies-showtimes.controller.js"></script>
     <script src="/app/movies/movies-theatres/movies-theatres.controller.js"></script>
-    <script src="/app/factories/logger/logger.factory.js"></script>
+    <script src="/app/theatres/theatres-movies/theatres-movies.controller.js"></script>
     <!-- endinject -->
     
     <!-- templates:js -->
-    <script src="/templates/cached_html_templates.js"></script>
     <!-- endinject -->
     <!-- END:BODY -->
 
