@@ -13,8 +13,20 @@ var mockData = require('../../data/mocks');
  * Dynamic data
  */
 var db = require('../../data/db');
+var queryAllTheatres = 'SELECT t.id, t.name FROM theatres t';
 var queryOneTheatre = 'SELECT t.id, t.name FROM theatres t WHERE id = ?';
 
+router.get('/', function(req, res) {
+
+  db.query(queryAllTheatres)
+  // mockData.theatres.all
+    .then(function(theatres) {
+      res.json({
+        data: theatres
+      });
+    });
+
+});
 
 router.get('/:theatre', function(req, res) {
 
@@ -31,5 +43,6 @@ router.get('/:theatre', function(req, res) {
       res.status(500).send({ error: err });
     });
 });
+
 
 module.exports = router;

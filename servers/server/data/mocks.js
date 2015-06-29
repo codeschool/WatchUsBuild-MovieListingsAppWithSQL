@@ -58,9 +58,47 @@ var oneMovie = new Promise(function (resolve) {
 });
 
 /**
- * All thatres
+ * All theatres
  */
 var allTheatres = new Promise(function(resolve) {
+
+  resolve([
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    },
+    {
+      id: 1,
+      name: 'Sample Theatre'
+    }
+  ]);
+
+});
+
+/**
+ * All movie theatres
+ */
+var allMovieTheatres = new Promise(function(resolve) {
 
   resolve([
     {
@@ -131,7 +169,8 @@ var oneTheatre = new Promise(function (resolve) {
 module.exports = {
   movies: {
     all: allMovies,
-    one: oneMovie
+    one: oneMovie,
+    allTheatres: allMovieTheatres
   },
 
   theatres: {
