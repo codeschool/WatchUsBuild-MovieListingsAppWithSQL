@@ -1,19 +1,21 @@
 <h1 ng-bind="vm.theatre.name"></h1>
 
-<ul class="media-list theatre-list">
-  <li class="media" ng-repeat="movie in vm.movies">
-    <div class="media-left media-middle">
+<div class="card theatre"
+  ng-repeat="movie in vm.movies">
+
+  <div class="group bucket">
+    <div class="bucket-media">
       <span class="media-placeholder"></span>
     </div>
 
-    <div class="media-body">
-      <h4 ng-bind="movie.title"></h4>
-      <p>
-        <span class="label label-default"
-          ng-repeat="showtime in movie.showtimes"
-          ng-bind="showtime.time"></span>
-      </p>
+    <div class="bucket-content">
+      <h3 class="theatre-title" ng-bind="movie.title"></h3>
+      <div class="labels">
+          <span class="label"
+            ng-repeat="showtime in movie.showtimes"
+            ng-bind="showtime.time"></span>
+      </div>
     </div>
 
-  </li>
-</ul>
+  </div>
+</div>
