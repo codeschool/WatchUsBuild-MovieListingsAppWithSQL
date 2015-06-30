@@ -1,22 +1,121 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-$fa-font-path: "/bower_components/font-awesome/fonts";
+@import 'reset';
 
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-@import "../bower_components/font-awesome/scss/font-awesome";
-/**
- * App-wide Styles
- */
+$base-space: 1.25em;
+$base-space-extra-small: $base-space * 0.25;
+$base-space-small: $base-space * 0.5;
+$base-space-large: $base-space * 2;
+$base-space-extra-large: $base-space * 4;
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+$border-radius: 6px;
+
+$color-background: #e3e4e4;
+$color-brand: #ccc;
+$color-primary: #000;
+$color-invert: #fff;
+$color-light: #999;
+
+$font-family: Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$font-size-small: 12px;
+$font-size-large: 22px;
+$line-height: 1.5;
+
+$site-header-height: 50px;
+$site-width: 960px;
+
+body {
+  background-color: $color-background;
+  color: $color-primary;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
-// Component styles are injected through grunt
-// injector
-@import 'main/main.scss';
-@import '../app/movies/movies.scss';
-@import '../app/theatres/theatres.scss';
-// endinjector
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  color: $color-light;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-invert;
+  }
+}
+
+.cell {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $site-width;
+}
+
+.grid {
+  display: block;
+  margin-left: -$base-space;
+}
+
+.grid-box {
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  margin-bottom: $base-space;
+  padding-left: $base-space;
+  width: 100%;
+}
+
+.grid-box--1of4 {
+  width: 25%;
+}
+
+.row {
+  overflow: hidden;
+  padding: 0 $base-space;
+}
+
+.well {
+  margin-bottom: $base-space;
+  margin-top: $base-space;
+}
+
+.group::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.header {
+  background: $color-primary;
+  height: $site-header-height;
+  line-height: $site-header-height;
+}
+
+.header-brand {
+  color: $color-brand;
+  float: left;
+  font-size: $font-size-large;
+  margin-right: $base-space;
+}
+
+.header-nav {
+  float: left;
+}
+
+.header-nav li {
+  display: inline;
+  font-size: $font-size-small;
+  font-weight: bold;
+  margin-right: $base-space;
+  text-transform: uppercase;
+}
+
+.thumbnail {
+  background: $color-invert;
+  border-radius: $border-radius;
+  padding: $base-space;
+}
