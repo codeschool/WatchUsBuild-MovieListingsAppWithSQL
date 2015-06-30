@@ -15,51 +15,36 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    
-    
+
     <!-- styles:css -->
     <link rel="stylesheet" href="/styles/app.css">
     <!-- endinject -->
-    
-    
-    <!-- END:HEAD -->
 
+    <!-- END:HEAD -->
   </head>
   <body ng-app="moviesApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" ng-click="collapse=!collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand">Soup to Bits</a>
-          </div>
-          <div class="navbar-collapse collapse" ng-class="{ in: !!collapse }">
-            <ul class="nav navbar-nav">
-              <li><a ui-sref="movies">Movies</a></li>
-              <li><a ui-sref="theatres">Theatres</a></li>
-            </ul>
-          </div>
-        </div>
+    <div class="row header">
+      <div class="group cell" role="navigation">
+        <a class="header-brand">Soup to Bits</a>
+        <ul class="nav header-nav">
+          <li><a ui-sref="movies">Movies</a></li>
+          <li><a ui-sref="theatres">Theatres</a></li>
+        </ul>
       </div>
     </div>
 
-    <div class="container content">
-      <div ui-view></div>
+    <div class="row">
+      <div class="cell well">
+        <div ui-view></div>
+      </div>
     </div>
 
-    <div class="footer">
-      <div class="container">
+    <div class="row footer">
+      <div class="cell well">
         <p>Movies Demo App</p>
       </div>
     </div>
@@ -81,15 +66,15 @@
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- vendor:js -->
     <script src="vendor/socket.io.js"></script>
     <!-- endinject -->
     <script src="socket.io-client/socket.io.js"></script>
-    
+
     <!-- root:js -->
     <!-- endinject -->
-    
+
     <!-- bundle:js -->
     <script src="/app/app.js"></script>
     <script src="/app/movies/movies.controller.js"></script>
@@ -101,11 +86,10 @@
     <script src="/app/movies/movies-theatres/movies-theatres.controller.js"></script>
     <script src="/app/theatres/theatres-movies/theatres-movies.controller.js"></script>
     <!-- endinject -->
-    
+
     <!-- templates:js -->
     <!-- endinject -->
     <!-- END:BODY -->
-
 
     </body>
 </html>
