@@ -22,9 +22,10 @@ $font-size-small: 12px;
 $font-size-large: 22px;
 $line-height: 1.5;
 
-$site-card-minHeight: 275px;
 $site-header-height: 50px;
 $site-width: 960px;
+
+$movie-minHeight: 275px;
 
 body {
   background-color: $color-background;
@@ -75,7 +76,23 @@ a {
   &:hover,
   &:focus,
   &:active {
+    background: darken($color-primary, 5%);
     color: $color-invert;
+  }
+}
+
+.bucket-content {
+  display: table-cell;
+  width: 10000px;
+}
+
+.bucket-media {
+  float: left;
+  margin-right: $base-space;
+
+  > img {
+    display: block;
+    max-width: none;
   }
 }
 
@@ -83,7 +100,6 @@ a {
   background: $color-invert;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
-  min-height: $site-card-minHeight;
   padding: $base-space;
   position: relative;
 }
@@ -172,16 +188,27 @@ a {
 }
 
 .movie {
+  min-height: $movie-minHeight;
   text-align: center;
 }
 
-.movie-cover {
+.movie-cover,
+.theatre-cover {
   background-color: $color-background;
   display: block;
+}
+
+.movie-cover {
   height: 150px;
 }
 
-.movie-title {
+.theatre-cover {
+  height: 150px;
+  width: 150px;
+}
+
+.movie-title,
+.theatre-title {
   font-size: $font-size-large;
   margin-bottom: 0;
 
@@ -190,6 +217,11 @@ a {
   }
 }
 
-.movie-subtitle {
+.movie-subtitle,
+.theatre-subtitle {
   color: $color-subdue;
+}
+
+.theatre {
+  margin-bottom: $base-space;
 }
