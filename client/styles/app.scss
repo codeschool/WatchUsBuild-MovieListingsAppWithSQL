@@ -1,22 +1,267 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-$fa-font-path: "/bower_components/font-awesome/fonts";
+@import 'reset';
 
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-@import "../bower_components/font-awesome/scss/font-awesome";
-/**
- * App-wide Styles
- */
+$base-space: 1.25em;
+$base-space-extra-small: $base-space * 0.25;
+$base-space-small: $base-space * 0.5;
+$base-space-large: $base-space * 2;
+$base-space-extra-large: $base-space * 4;
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+$border-radius: 6px;
+$box-shadow: 0 1px 1px rgba(#000, 0.25);
+
+$color-background: #e3e4e4;
+$color-brand: #ccc;
+$color-primary: #978347;
+$color-invert: #fff;
+$color-subdue: #999;
+$color-text: #111;
+
+$font-family: Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$font-size-small: 12px;
+$font-size-large: 22px;
+$line-height: 1.5;
+
+$site-header-height: 50px;
+$site-width: 960px;
+
+$item--movie-minHeight: 275px;
+
+body {
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
-// Component styles are injected through grunt
-// injector
-@import 'main/main.scss';
-@import '../app/movies/movies.scss';
-@import '../app/theatres/theatres.scss';
-// endinjector
+h1, h2, h3, h4 {
+  margin: 0 0 $base-space-extra-small;
+}
+
+h1, h2 {
+  margin-bottom: $base-space-small;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+p {
+  margin: 0 0 $base-space;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-subdue;
+  }
+}
+
+.btn {
+  background: $color-primary;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: $color-invert;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-small;
+  font-weight: bold;
+  line-height: 3;
+  padding: 0 $base-space-large;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: darken($color-primary, 5%);
+    color: $color-invert;
+  }
+}
+
+.bucket-content {
+  display: table-cell;
+  width: 10000px;
+}
+
+.bucket-media {
+  float: left;
+  margin-right: $base-space;
+
+  > img {
+    display: block;
+    max-width: none;
+  }
+}
+
+.card {
+  background: $color-invert;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $base-space;
+  position: relative;
+}
+
+.card-btn {
+  display: block;
+}
+
+.cell {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $site-width;
+}
+
+.grid {
+  display: block;
+  margin-left: -$base-space;
+}
+
+.grid-box {
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  margin-bottom: $base-space;
+  padding-left: $base-space;
+  width: 100%;
+}
+
+.grid-box--1of4 {
+  width: 50%;
+
+  @media screen and (min-width: 700px) {
+    width: 33.333333333%;
+  }
+
+  @media screen and (min-width: 960px) {
+    width: 25%;
+  }
+}
+
+.row {
+  overflow: hidden;
+  padding: 0 $base-space;
+}
+
+.well {
+  margin-bottom: $base-space;
+  margin-top: $base-space;
+}
+
+.group::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.footer {
+  color: $color-subdue;
+  font-size: $font-size-small;
+  margin-top: $base-space-large;
+  padding-bottom: $base-space-extra-large;
+  text-align: center;
+}
+
+.header {
+  background: $color-text;
+  height: $site-header-height;
+  line-height: $site-header-height;
+}
+
+.header-brand {
+  color: $color-brand;
+  float: left;
+  font-size: $font-size-large;
+  margin-right: $base-space;
+}
+
+.header-nav {
+  float: left;
+}
+
+.header-nav li {
+  display: inline;
+  font-size: $font-size-small;
+  font-weight: bold;
+  margin-right: $base-space;
+  text-transform: uppercase;
+}
+
+.header-nav li a:active,
+.header-nav li a:focus,
+.header-nav li a:hover {
+  color: $color-invert;
+}
+
+.labels .label {
+  margin-right: $base-space-small;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.label {
+  background: $color-subdue;
+  border-radius: 20px;
+  color: $color-invert;
+  font-size: $font-size-small;
+  font-weight: bold;
+  padding: $base-space-extra-small $base-space;
+}
+
+.item--movie {
+  min-height: $item--movie-minHeight;
+  text-align: center;
+
+  .item-cover {
+    height: 150px;
+    margin-bottom: $base-space-small;
+  }
+}
+
+.item--theatre .item-cover {
+  height: 120px;
+  width: 150px;
+}
+
+.item--theatre {
+  margin-bottom: $base-space-small;
+}
+
+.item--theatre--min {
+  margin-bottom: 0;
+  text-align: center;
+
+  .item-title {
+    margin-bottom: $base-space;
+  }
+}
+
+.item-cover {
+  background-color: $color-background;
+  display: block;
+}
+
+.item-subtitle {
+  color: $color-subdue;
+}
+
+.item-title {
+  font-size: $font-size-large;
+  margin-bottom: 0;
+
+  a {
+    color: $color-text;
+  }
+}

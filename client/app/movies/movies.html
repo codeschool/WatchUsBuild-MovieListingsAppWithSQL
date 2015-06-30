@@ -1,31 +1,28 @@
-<div class="row">
-  <div class="col-lg-3 col-md-4 col-sm-6 movie-list"
+<div class="group grid">
+  <div class="grid-box grid-box--1of4"
     ng-repeat="movie in vm.movies">
 
-    <div class="thumbnail">
-      <a ui-sref="movies_theatres({movie: movie.id})" class="movie-cover"></a>
+    <div class="card item item--movie">
+      <a ui-sref="movies_theatres({movie: movie.id})" class="item-cover"></a>
 
-      <div class="caption">
-
-        <a class="movie-title"
+      <h2 class="item-title">
+        <a
           ui-sref="movies_theatres({movie: movie.id})"
           ng-bind="movie.title"></a>
+      </h2>
 
-        <p ng-pluralize
-          count="movie.theatresCount"
-          when="{'0': 'No theatres playing',
-                 '1': 'Playing in 1 theatre',
-                 'other': 'Playing in {{movie.theatresCount}} theatres'}">
-        </p>
+      <p class="item-subtitle"
+        ng-pluralize
+        count="movie.theatresCount"
+        when="{'0': 'No theatres playing',
+               '1': 'Playing in 1 theatre',
+               'other': 'Playing in {{movie.theatresCount}} theatres'}">
+      </p>
 
-        <a class="btn btn-default"
-          ui-sref="movies_theatres({movie: movie.id})">
-          See Theatres
-        </a>
-
-      </div>
-
+      <a class="btn card-btn"
+        ui-sref="movies_theatres({movie: movie.id})">
+        See Theatres
+      </a>
     </div>
-
   </div>
 </div>
