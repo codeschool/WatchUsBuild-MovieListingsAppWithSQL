@@ -35,6 +35,14 @@ body {
   line-height: $line-height;
 }
 
+h1, h2, h3, h4 {
+  margin: 0 0 $base-space-extra-small;
+}
+
+h1 {
+  margin-bottom: $base-space;
+}
+
 ul, ol {
   margin: 0;
   padding: 0;
@@ -187,6 +195,23 @@ a {
   color: $color-invert;
 }
 
+.labels .label {
+  margin-right: $base-space-small;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.label {
+  background: $color-subdue;
+  border-radius: 20px;
+  color: $color-invert;
+  font-size: $font-size-small;
+  font-weight: bold;
+  padding: $base-space-extra-small $base-space;
+}
+
 .movie {
   min-height: $movie-minHeight;
   text-align: center;
@@ -196,6 +221,7 @@ a {
 .theatre-cover {
   background-color: $color-background;
   display: block;
+  margin-bottom: $base-space-small;
 }
 
 .movie-cover {

@@ -1,9 +1,11 @@
 <h1 ng-bind="vm.movie.title"></h1>
 
-<h2>Showtimes for &quot;{{ vm.theatre.name }}&quot;</h2>
+<div class="card">
+  <h2>Showtimes for &quot;{{ vm.theatre.name }}&quot;</h2>
 
-<div class="showtimes">
-  <span class="label label-default"
-    ng-repeat="time in vm.showtimes"
-    ng-bind="time.time"></span>
+  <div class="labels">
+    <span class="label"
+      ng-repeat="time in vm.showtimes"
+      ng-bind="time.time"></span>
+  </div>
 </div>
