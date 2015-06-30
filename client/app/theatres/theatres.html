@@ -1,22 +1,18 @@
-<div class="row">
-  <div class="col-lg-3 col-md-4 col-sm-6 movie-list"
+<div class="group grid">
+  <div class="grid-box grid-box--1of4"
     ng-repeat="theatre in vm.theatres">
 
-    <div class="thumbnail">
+    <div class="card theatre theatre--min">
 
-      <div class="caption">
+      <h2 class="theatre-title">
+        <a ui-sref="theatres_movies({theatre: theatre.id})"
+          ng-bind="theatre.name"></a>
+      </h2>
 
-        <p>
-          <a ui-sref="theatres_movies({theatre: theatre.id})"
-            ng-bind="theatre.name"></a>
-        </p>
-
-        <a class="btn btn-default"
-          ui-sref="theatres_movies({theatre: theatre.id})">
-          See Movies
-        </a>
-
-      </div>
+      <a class="btn card-btn"
+        ui-sref="theatres_movies({theatre: theatre.id})">
+        See Movies
+      </a>
 
     </div>
   </div>

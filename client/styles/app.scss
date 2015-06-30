@@ -251,3 +251,12 @@ a {
 .theatre {
   margin-bottom: $base-space;
 }
+
+.theatre--min {
+  margin-bottom: 0;
+  text-align: center;
+
+  .theatre-title {
+    margin-bottom: $base-space;
+  }
+}
