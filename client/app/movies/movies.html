@@ -2,16 +2,16 @@
   <div class="grid-box grid-box--1of4"
     ng-repeat="movie in vm.movies">
 
-    <div class="card movie">
-      <a ui-sref="movies_theatres({movie: movie.id})" class="movie-cover"></a>
+    <div class="card item item--movie">
+      <a ui-sref="movies_theatres({movie: movie.id})" class="item-cover"></a>
 
-      <h2 class="movie-title">
+      <h2 class="item-title">
         <a
           ui-sref="movies_theatres({movie: movie.id})"
           ng-bind="movie.title"></a>
       </h2>
 
-      <p class="movie-subtitle"
+      <p class="item-subtitle"
         ng-pluralize
         count="movie.theatresCount"
         when="{'0': 'No theatres playing',

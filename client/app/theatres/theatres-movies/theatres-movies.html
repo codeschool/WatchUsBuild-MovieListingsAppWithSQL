@@ -1,6 +1,6 @@
 <h1 ng-bind="vm.theatre.name"></h1>
 
-<div class="card theatre"
+<div class="card item item--theatre"
   ng-repeat="movie in vm.movies">
 
   <div class="group bucket">
@@ -9,7 +9,7 @@
     </div>
 
     <div class="bucket-content">
-      <h3 class="theatre-title" ng-bind="movie.title"></h3>
+      <h3 class="item-title" ng-bind="movie.title"></h3>
       <div class="labels">
           <span class="label"
             ng-repeat="showtime in movie.showtimes"

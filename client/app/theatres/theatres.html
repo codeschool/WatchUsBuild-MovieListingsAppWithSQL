@@ -2,9 +2,9 @@
   <div class="grid-box grid-box--1of4"
     ng-repeat="theatre in vm.theatres">
 
-    <div class="card theatre theatre--min">
+    <div class="card item item--theatre item--theatre--min">
 
-      <h2 class="theatre-title">
+      <h2 class="item-title">
         <a ui-sref="theatres_movies({theatre: theatre.id})"
           ng-bind="theatre.name"></a>
       </h2>

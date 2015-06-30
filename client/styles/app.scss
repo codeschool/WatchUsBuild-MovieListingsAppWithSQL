@@ -25,7 +25,7 @@ $line-height: 1.5;
 $site-header-height: 50px;
 $site-width: 960px;
 
-$movie-minHeight: 275px;
+$item--movie-minHeight: 275px;
 
 body {
   background-color: $color-background;
@@ -212,51 +212,48 @@ a {
   padding: $base-space-extra-small $base-space;
 }
 
-.movie {
-  min-height: $movie-minHeight;
+.item--movie {
+  min-height: $item--movie-minHeight;
   text-align: center;
+
+  .item-cover {
+    height: 150px;
+    margin-bottom: $base-space-small;
+  }
 }
 
-.movie-cover,
-.theatre-cover {
-  background-color: $color-background;
-  display: block;
-}
-
-.movie-cover {
-  height: 150px;
-  margin-bottom: $base-space-small;
-}
-
-.theatre-cover {
+.item--theatre .item-cover {
   height: 120px;
   width: 150px;
 }
 
-.movie-title,
-.theatre-title {
+.item--theatre {
+  margin-bottom: $base-space-small;
+}
+
+.item--theatre--min {
+  margin-bottom: 0;
+  text-align: center;
+
+  .item-title {
+    margin-bottom: $base-space;
+  }
+}
+
+.item-cover {
+  background-color: $color-background;
+  display: block;
+}
+
+.item-subtitle {
+  color: $color-subdue;
+}
+
+.item-title {
   font-size: $font-size-large;
   margin-bottom: 0;
 
   a {
     color: $color-text;
-  }
-}
-
-.movie-subtitle,
-.theatre-subtitle {
-  color: $color-subdue;
-}
-
-.theatre {
-  margin-bottom: $base-space-small;
-}
-
-.theatre--min {
-  margin-bottom: 0;
-  text-align: center;
-
-  .theatre-title {
-    margin-bottom: $base-space;
   }
 }

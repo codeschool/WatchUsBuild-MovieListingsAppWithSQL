@@ -1,19 +1,19 @@
 <h1 ng-bind="vm.movie.title"></h1>
 <h2>List of Theatres Playing Movie</h2>
 
-<div class="card theatre"
+<div class="card item item--theatre"
   ng-repeat="theatre in vm.theatres">
 
   <div class="group bucket">
     <div class="bucket-media">
-      <a class="theatre-cover"
+      <a class="item-cover"
         ui-sref="movies_showtimes({movie: vm.movie.id, theatre: theatre.id})"></a>
     </div>
 
     <div class="bucket-content">
-      <h3 class="theatre-title" ng-bind="theatre.name"></h3>
+      <h3 class="item-title" ng-bind="theatre.name"></h3>
 
-      <p class="theatre-subtitle"
+      <p class="item-subtitle"
         ng-pluralize
         count="theatre.showtimesCount"
         when="{'0': 'No showtimes',
