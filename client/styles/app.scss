@@ -7,12 +7,14 @@ $base-space-large: $base-space * 2;
 $base-space-extra-large: $base-space * 4;
 
 $border-radius: 6px;
+$box-shadow: 0 1px 1px rgba(#000, 0.25);
 
 $color-background: #e3e4e4;
 $color-brand: #ccc;
-$color-primary: #000;
+$color-primary: #978347;
 $color-invert: #fff;
-$color-light: #999;
+$color-subdue: #999;
+$color-text: #111;
 
 $font-family: Helvetica, Arial, sans-serif;
 $font-size: 16px;
@@ -20,12 +22,13 @@ $font-size-small: 12px;
 $font-size-large: 22px;
 $line-height: 1.5;
 
+$site-card-minHeight: 275px;
 $site-header-height: 50px;
 $site-width: 960px;
 
 body {
   background-color: $color-background;
-  color: $color-primary;
+  color: $color-text;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
@@ -37,16 +40,56 @@ ul, ol {
   list-style-type: none;
 }
 
+p {
+  margin: 0 0 $base-space;
+}
+
 a {
-  color: $color-light;
+  color: $color-primary;
   text-decoration: none;
   transition: 0.2s ease-in-out;
 
   &:hover,
   &:focus,
   &:active {
+    color: $color-subdue;
+  }
+}
+
+.btn {
+  background: $color-primary;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: $color-invert;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-small;
+  font-weight: bold;
+  line-height: 3;
+  padding: 0 $base-space-large;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active {
     color: $color-invert;
   }
+}
+
+.card {
+  background: $color-invert;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  min-height: $site-card-minHeight;
+  padding: $base-space;
+  position: relative;
+}
+
+.card-btn {
+  display: block;
 }
 
 .cell {
@@ -70,7 +113,15 @@ a {
 }
 
 .grid-box--1of4 {
-  width: 25%;
+  width: 50%;
+
+  @media screen and (min-width: 700px) {
+    width: 33.333333333%;
+  }
+
+  @media screen and (min-width: 960px) {
+    width: 25%;
+  }
 }
 
 .row {
@@ -90,7 +141,7 @@ a {
 }
 
 .header {
-  background: $color-primary;
+  background: $color-text;
   height: $site-header-height;
   line-height: $site-header-height;
 }
@@ -114,8 +165,31 @@ a {
   text-transform: uppercase;
 }
 
-.thumbnail {
-  background: $color-invert;
-  border-radius: $border-radius;
-  padding: $base-space;
+.header-nav li a:active,
+.header-nav li a:focus,
+.header-nav li a:hover {
+  color: $color-invert;
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie-cover {
+  background-color: $color-background;
+  display: block;
+  height: 150px;
+}
+
+.movie-title {
+  font-size: $font-size-large;
+  margin-bottom: 0;
+
+  a {
+    color: $color-text;
+  }
+}
+
+.movie-subtitle {
+  color: $color-subdue;
 }
