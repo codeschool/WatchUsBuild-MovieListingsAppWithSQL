@@ -164,6 +164,14 @@ a {
   display: table;
 }
 
+.footer {
+  color: $color-subdue;
+  font-size: $font-size-small;
+  margin-top: $base-space-large;
+  padding-bottom: $base-space-extra-large;
+  text-align: center;
+}
+
 .header {
   background: $color-text;
   height: $site-header-height;
