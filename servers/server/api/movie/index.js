@@ -24,8 +24,15 @@ var queryAllShowtimes = 'SELECT s.time FROM showtimes s WHERE movie_id = ? AND t
  */
 router.get('', function(req, res) {
 
-  // db.query(queryAllMovies)
-  mockData.movies.all
+  var promise;
+
+  if (queryAllMovies) {
+    promise = db.query(queryAllMovies);
+  } else {
+    promise = mockData.movies.all;
+  }
+
+  promise
     .then(function(movies) {
       res.json({
         data: movies
@@ -42,8 +49,15 @@ router.get('', function(req, res) {
  */
 router.get('/:movie', function(req, res) {
 
-  // db.query(queryOneMovie, req.params.movie, 'one')
-  mockData.movies.one
+  var promise;
+
+  if (queryOneMovie) {
+    promise = db.query(queryOneMovie, req.params.movie, 'one');
+  } else {
+    promise = mockData.movies.one;
+  }
+
+  promise
     .then(function(movie) {
       res.json({
         data: movie
@@ -60,8 +74,15 @@ router.get('/:movie', function(req, res) {
  */
 router.get('/:movie/theatres', function(req, res) {
 
-  // db.query(queryAllTheatres, req.params.movie)
-  mockData.movies.allTheatres
+  var promise;
+
+  if (queryAllTheatres) {
+    promise = db.query(queryAllTheatres, req.params.movie);
+  } else {
+    promise = mockData.movies.allTheatres;
+  }
+
+  promise
     .then(function(theatres) {
       res.json({
         data: theatres
@@ -78,8 +99,15 @@ router.get('/:movie/theatres', function(req, res) {
  */
 router.get('/:movie/theatres/:theatre', function(req, res) {
 
-  // db.query(queryAllShowtimes, [ req.params.movie, req.params.theatre ])
-  mockData.showtimes.all
+  var promise;
+
+  if (queryAllTheatres) {
+    promise = db.query(queryAllShowtimes, [ req.params.movie, req.params.theatre ]);
+  } else {
+    promise = mockData.showtimes.all;
+  }
+
+  promise
     .then(function(showtimes) {
       res.json({
         data: showtimes

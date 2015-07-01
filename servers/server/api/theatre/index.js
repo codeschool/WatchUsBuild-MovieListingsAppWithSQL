@@ -20,8 +20,15 @@ var queryAllTheatresMoviesShowtimes = 'SELECT time FROM showtimes WHERE theatre_
 
 router.get('/', function(req, res) {
 
-  // db.query(queryAllTheatres)
-  mockData.theatres.all
+  var promise;
+
+  if (queryAllTheatres) {
+    promise = db.query(queryAllTheatres);
+  } else {
+    promise = mockData.theatres.all;
+  }
+
+  promise
     .then(function(theatres) {
       res.json({
         data: theatres
@@ -35,9 +42,15 @@ router.get('/', function(req, res) {
 
 router.get('/:theatre', function(req, res) {
 
+  var promise;
 
-  // db.query(queryOneTheatre, req.params.theatre, 'one')
-  mockData.theatres.one
+  if (queryAllTheatres) {
+    promise = db.query(queryOneTheatre, req.params.theatre, 'one');
+  } else {
+    promise = mockData.theatres.one;
+  }
+
+  promise
     .then(function(theatre) {
       res.json({
         data: theatre
@@ -51,9 +64,15 @@ router.get('/:theatre', function(req, res) {
 router.get('/:theatre/movies', function(req, res) {
 
   var allMovies;
+  var promise;
 
-  // db.query(queryAllTheatresMovies, req.params.theatre)
-  mockData.theatres.allMovies
+  if (queryAllTheatres) {
+    promise = db.query(queryAllTheatresMovies, req.params.theatre)
+  } else {
+    promise = mockData.theatres.allMovies;
+  }
+
+  promise
     .then(function(movies) {
 
       // Moving up in scope
@@ -66,13 +85,23 @@ router.get('/:theatre/movies', function(req, res) {
       allMovies.forEach(function(movie) {
 
         // Creates new promise, querying for showtimes
-        var promise = db.query(queryAllTheatresMoviesShowtimes, [req.params.theatre, movie.id])
+        var subPromise;
+
+        console.log('movie', movie.id);
+
+        if (queryAllTheatresMoviesShowtimes) {
+          subPromise = db.query(queryAllTheatresMoviesShowtimes, [req.params.theatre, movie.id]);
+        } else {
+          subPromise = mockData.theatres.allMoviesShowtimes;
+        }
+
+        subPromise
           .then(function(showtimes) {
             movie.showtimes = showtimes;
           });
 
         // Pushes to list of promises
-        promises.push(promise);
+        promises.push(subPromise);
       });
 
       return Promise.all(promises);

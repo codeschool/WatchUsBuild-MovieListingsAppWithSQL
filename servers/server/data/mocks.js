@@ -167,66 +167,31 @@ var allTheatreMovies = new Promise(function(resolve) {
   resolve([
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     },
     {
       id: 1,
-      title: 'Sample Movie',
-      showtimes: [
-        '11:00 AM',
-        '2:00 PM',
-        '5:00 PM'
-      ]
+      title: 'Sample Movie'
     }
   ]);
 
@@ -239,6 +204,25 @@ var oneTheatre = new Promise(function (resolve) {
   });
 });
 
+var allTheatresMoviesShowtimes = new Promise(function (resolve) {
+  resolve([
+    {
+      time: '3:00 PM'
+    },
+    {
+      time: '3:00 PM'
+    },
+    {
+      time: '3:00 PM'
+    },
+    {
+      time: '3:00 PM'
+    }
+  ]);
+});
+
+
+
 module.exports = {
   movies: {
     all: allMovies,
@@ -249,7 +233,8 @@ module.exports = {
   theatres: {
     all: allTheatres,
     one: oneTheatre,
-    allMovies: allTheatreMovies
+    allMovies: allTheatreMovies,
+    allMoviesShowtimes: allTheatresMoviesShowtimes
   },
 
   showtimes: {
