@@ -1,0 +1,59 @@
+
+2:15
+Vertabelo: Database Modeling app
+http://www.vertabelo.com
+
+15:15
+Building Blocks of Express
+https://www.codeschool.com/courses/building-blocks-of-express-js
+
+15:25
+Shaping up with AngularJS
+http://campus.codeschool.com/courses/shaping-up-with-angular-js
+
+15:30
+Soup to Bits GitHub repo
+https://github.com/codeschool/SequelToSQLSoupToBits
+
+39:30
+Stack Overflow
+http://stackoverflow.com
+
+40:00
+Limit and offset in sqlite
+https://www.sqlite.org/lang_select.html#limitoffset
+
+Limit and offset in pgsql
+http://www.postgresql.org/docs/9.4/static/queries-limit.html
+
+41:50
+Datetime in MySQL
+https://dev.mysql.com/doc/refman/5.0/en/datetime.html
+
+42:50
+Rails Active Record
+http://guides.rubyonrails.org/active_record_basics.html
+
+Rails for Zombies Redux
+https://www.codeschool.com/courses/rails-for-zombies-redux
+
+43:20
+PostGIS: Plugin that allows geospatial queries in pgsql
+http://postgis.net
+
+44:00
+"Groupon: Geolocation" Feature Focus
+https://www.codeschool.com/screencasts/groupon-geolocation
+
+45:00
+NodeJS ORMs and Query Builders:
+http://knexjs.org
+http://bookshelfjs.org
+
+45:45
+SailsJS: NodeJS Framework
+http://sailsjs.org
+
+46:25
+Waterline: ORM built into SailJS
+https://github.com/balderdashy/waterline
