@@ -33,29 +33,5 @@ angular.module('moviesApp')
                 .getList();
             }
           }
-        })
-        .state('movies_showtimes', {
-          url: '/movies/:movie/theatres/:theatre',
-          controller: 'MoviesShowtimesCtrl',
-          controllerAs: 'vm',
-          templateUrl: 'app/movies/movies-showtimes/movies-showtimes.html',
-          resolve: {
-            movie: function($stateParams, Restangular) {
-              return Restangular
-                .one('movies', $stateParams.movie)
-                .get();
-            },
-
-            theatre: function($stateParams, Restangular) {
-              return Restangular.one('theatres', $stateParams.theatre)
-                .get();
-            },
-
-            showtimes: function($stateParams, Restangular) {
-              return Restangular.one('movies', $stateParams.movie)
-                .one('theatres', $stateParams.theatre)
-                .getList();
-            },
-          }
         });
   });

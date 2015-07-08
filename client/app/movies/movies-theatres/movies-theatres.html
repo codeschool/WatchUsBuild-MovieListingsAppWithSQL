@@ -5,26 +5,21 @@
   ng-repeat="theatre in vm.theatres">
 
   <div class="group bucket">
-    <div class="bucket-media">
-      <a class="item-cover"
-        ui-sref="movies_showtimes({movie: vm.movie.id, theatre: theatre.id})"></a>
+    <div class="bucket-media item-cover">
+      <div class="item-cover"></div>
     </div>
 
     <div class="bucket-content">
       <h3 class="item-title" ng-bind="theatre.name"></h3>
 
-      <p class="item-subtitle"
-        ng-pluralize
-        count="theatre.showtimesCount"
-        when="{'0': 'No showtimes',
-               '1': '1 showtime',
-               'other': '{{theatre.showtimesCount}} showtimes'}">
-      </p>
+      <p>&nbsp;</p>
 
-      <a class="btn"
-        ui-sref="movies_showtimes({movie: vm.movie.id, theatre: theatre.id})"
-        ng-disabled="!theatre.showtimesCount">
-        See showtimes</a>
+      <div class="labels">
+        <span class="label"
+          ng-repeat="time in theatre.showtimes"
+          ng-bind="time.time"></span>
+      </div>
+
     </div>
   </div>
 </div>
