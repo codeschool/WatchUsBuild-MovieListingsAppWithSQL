@@ -6,7 +6,7 @@
 3. compass: `gem install compass`
 
 ## Instalation
-1. Clone repo: `git clone git@github.com:codeschool/SequelToSQLSoupToBits.git`
+1. Clone repo: `git clone https://github.com/codeschool/SequelToSQLSoupToBits.git`
 2. Install dependencies: `npm install && bower install`
 
 ## Run locally
