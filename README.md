@@ -16,4 +16,4 @@ _This will get your local server running on port 3000 (http://localhost:300)_
 
 
 ### About this project
-This project was initially scaffolded with this [yeoman generator](https://www.npmjs.com/package/generator-soa). Feel free to visit their page in case you run into any problems, chances are somebody else has ran into similar problems :)
+This project was initially scaffolded with the [generator-soa](https://www.npmjs.com/package/generator-soa). Feel free to visit their page in case you run into any problems, chances are somebody else has ran into similar problems :)
