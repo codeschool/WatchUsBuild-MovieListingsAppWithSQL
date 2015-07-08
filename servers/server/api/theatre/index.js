@@ -13,10 +13,9 @@ var mockData = require('../../data/mocks');
  * Dynamic data
  */
 var db = require('../../data/db');
-var queryAllTheatres = 'SELECT t.id, t.name FROM theatres t';
-var queryOneTheatre = 'SELECT t.id, t.name FROM theatres t WHERE id = ?';
-var queryAllTheatresMovies = 'SELECT m.id, m.title FROM showtimes s INNER JOIN movies m ON s.movie_id = m.id WHERE s.theatre_id = ? GROUP BY s.movie_id';
-var queryAllTheatresMoviesShowtimes = 'SELECT time FROM showtimes WHERE theatre_id = ? AND movie_id = ?';
+var queryAllTheatres = 'SELECT id, name FROM theatres';
+var queryOneTheatre = 'SELECT id, name FROM theatres WHERE id = ?;';
+var queryAllTheatresMovies = 'SELECT s.time, m.title FROM showtimes s INNER JOIN movies m ON m.id = s.movie_id WHERE s.theatre_id = ? ORDER BY m.title;';
 
 router.get('/', function(req, res) {
 
@@ -44,7 +43,7 @@ router.get('/:theatre', function(req, res) {
 
   var promise;
 
-  if (queryAllTheatres) {
+  if (queryOneTheatre) {
     promise = db.query(queryOneTheatre, req.params.theatre, 'one');
   } else {
     promise = mockData.theatres.one;
@@ -63,10 +62,10 @@ router.get('/:theatre', function(req, res) {
 
 router.get('/:theatre/movies', function(req, res) {
 
-  var allMovies;
+  var allMovies = [];
   var promise;
 
-  if (queryAllTheatres) {
+  if (queryAllTheatresMovies) {
     promise = db.query(queryAllTheatresMovies, req.params.theatre)
   } else {
     promise = mockData.theatres.allMovies;
@@ -75,36 +74,30 @@ router.get('/:theatre/movies', function(req, res) {
   promise
     .then(function(movies) {
 
-      // Moving up in scope
-      allMovies = movies;
+      var prevMovie;
+      var currentMovieIndex;
 
-      // Array of promises
-      var promises = [];
+      movies.forEach(function(movie) {
 
-      // Loop through theatre
-      allMovies.forEach(function(movie) {
+        if (!(prevMovie && prevMovie.title === movie.title)) {
 
-        // Creates new promise, querying for showtimes
-        var subPromise;
+          currentMovieIndex = allMovies.length;
 
-        console.log('movie', movie.id);
-
-        if (queryAllTheatresMoviesShowtimes) {
-          subPromise = db.query(queryAllTheatresMoviesShowtimes, [req.params.theatre, movie.id]);
-        } else {
-          subPromise = mockData.theatres.allMoviesShowtimes;
-        }
-
-        subPromise
-          .then(function(showtimes) {
-            movie.showtimes = showtimes;
+          // different
+          allMovies.push({
+            title: movie.title,
+            showtimes: []
           });
 
-        // Pushes to list of promises
-        promises.push(subPromise);
-      });
+        }
 
-      return Promise.all(promises);
+        allMovies[currentMovieIndex].showtimes.push({
+          time: movie.time
+        });
+
+        prevMovie = movie;
+
+      });
 
     })
 

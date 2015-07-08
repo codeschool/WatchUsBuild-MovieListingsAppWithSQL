@@ -9,37 +9,37 @@ var allMovies = new Promise(function(resolve) {
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7,
+      theatresCount: 2
     },
     {
       id: 1,
       title: 'Sample Movie',
-      theatresCount: 7
+      theatresCount: 2
     }
   ]);
 
@@ -104,37 +104,32 @@ var allMovieTheatres = new Promise(function(resolve) {
     {
       id: 1,
       name: 'Sample Theatre',
-      showtimesCount: 4
+      time: '3:00 PM'
     },
     {
       id: 1,
       name: 'Sample Theatre',
-      showtimesCount: 4
+      time: '4:00 PM'
     },
     {
       id: 1,
       name: 'Sample Theatre',
-      showtimesCount: 4
+      time: '5:00 PM'
     },
     {
       id: 1,
-      name: 'Sample Theatre',
-      showtimesCount: 4
+      name: 'Sample Theatre 2',
+      time: '3:00 PM'
     },
     {
       id: 1,
-      name: 'Sample Theatre',
-      showtimesCount: 4
+      name: 'Sample Theatre 2',
+      time: '4:00 PM'
     },
     {
       id: 1,
-      name: 'Sample Theatre',
-      showtimesCount: 4
-    },
-    {
-      id: 1,
-      name: 'Sample Theatre',
-      showtimesCount: 4
+      name: 'Sample Theatre 2',
+      time: '5:00 PM'
     }
   ]);
 
@@ -167,31 +162,33 @@ var allTheatreMovies = new Promise(function(resolve) {
   resolve([
     {
       id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie',
+      time: '3:00 PM'
     },
     {
       id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie',
+      time: '4:00 PM'
     },
     {
       id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie',
+      time: '5:00 PM'
     },
     {
       id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie 2',
+      time: '3:00 PM'
     },
     {
       id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie 2',
+      time: '4:00 PM'
     },
     {
       id: 1,
-      title: 'Sample Movie'
-    },
-    {
-      id: 1,
-      title: 'Sample Movie'
+      title: 'Sample Movie 2',
+      time: '5:00 PM'
     }
   ]);
 

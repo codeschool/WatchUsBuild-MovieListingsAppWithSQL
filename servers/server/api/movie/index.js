@@ -13,16 +13,15 @@ var mockData = require('../../data/mocks');
  * Dynamic data
  */
 var db = require('../../data/db');
-var queryAllMovies = 'SELECT m.id, m.title, ( SELECT COUNT(DISTINCT theatre_id) FROM showtimes WHERE movie_id = m.id ) as theatresCount FROM movies m;';
-var queryOneMovie = 'SELECT m.id, m.title FROM movies m WHERE id = ?';
-var queryAllTheatres = 'SELECT t.id, t.name, ( SELECT count(*) FROM showtimes WHERE theatre_id = t.id AND movie_id = s.movie_id ) as showtimesCount FROM theatres t LEFT JOIN showtimes s ON s.theatre_id = t.id WHERE s.movie_id = ? GROUP BY t.id';
-var queryAllShowtimes = 'SELECT s.time FROM showtimes s WHERE movie_id = ? AND theatre_id = ?;';
+var queryAllMovies = 'SELECT m.id, m.title, COUNT(DISTINCT s.theatre_id) as theatresCount FROM movies m LEFT OUTER JOIN showtimes s ON m.id = s.movie_id GROUP BY s.movie_id ORDER BY theatresCount DESC';
+var queryOneMovie = 'SELECT title FROM movies WHERE id = ?;';
+var queryAllTheatres = 'SELECT s.time, t.name FROM showtimes s INNER JOIN theatres t ON t.id = s.theatre_id WHERE s.movie_id = ? ORDER BY t.name';
 
 
 /**
  * Retuns list of all movies
  */
-router.get('', function(req, res) {
+router.get('/', function(req, res) {
 
   var promise;
 
@@ -82,35 +81,39 @@ router.get('/:movie/theatres', function(req, res) {
     promise = mockData.movies.allTheatres;
   }
 
+  var allTheatres = [];
+
   promise
     .then(function(theatres) {
-      res.json({
-        data: theatres
+
+      var prevTheatre;
+      var currentTheatreIndex;
+
+      theatres.forEach(function(theatre) {
+
+        if (!(prevTheatre && prevTheatre.name === theatre.name)) {
+
+          currentTheatreIndex = allTheatres.length
+
+          // different
+          allTheatres.push({
+            id: theatre.id,
+            name: theatre.name,
+            showtimes: []
+          });
+
+        }
+
+        allTheatres[currentTheatreIndex].showtimes.push({
+          time: theatre.time
+        });
+
+        prevTheatre = theatre;
+
       });
-    })
-    .catch(function(err) {
-      res.status(500).send({ error: err });
-    });
 
-});
-
-/**
- * Returns list of show times for a movie and theatre
- */
-router.get('/:movie/theatres/:theatre', function(req, res) {
-
-  var promise;
-
-  if (queryAllTheatres) {
-    promise = db.query(queryAllShowtimes, [ req.params.movie, req.params.theatre ]);
-  } else {
-    promise = mockData.showtimes.all;
-  }
-
-  promise
-    .then(function(showtimes) {
       res.json({
-        data: showtimes
+        data: allTheatres
       });
     })
     .catch(function(err) {
