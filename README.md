@@ -5,14 +5,14 @@
 2. gulp and bower (`npm install bower gulp -g`)
 3. compass: `gem install compass`
 
-## Instalation
+## Installation
 1. Clone repo: `git clone https://github.com/codeschool/SequelToSQLSoupToBits.git`
 2. Install dependencies: `npm install && bower install`
 
 ## Run locally
 1. `gulp serve`
 
-_This will get your local server running on port 3000 (http://localhost:300)_
+_This will get your local server running on port 3000 (http://localhost:3000)_
 
 
 ### About this project
