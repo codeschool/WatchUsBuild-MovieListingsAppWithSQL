@@ -63,7 +63,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
     "gulp-ruby-sass": "^0.7.1",
-    "gulp-sass": "^0.7.3",
+    "gulp-sass": "^2.0.0",
     "gulp-run-sequence": "^0.3.2",
     "gulp-serve": "~0.2.0",
     "gulp-shell": "^0.2.9",
