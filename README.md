@@ -1,4 +1,6 @@
-# Sequel to SQL - Soup to Bits
+# Sequel to SQL - Watch Us Build
+
+*We changed the name of this series to "Watch Us Build," so you may see an occasional reference to its former name ("Soup to Bits") in this repository.*
 
 ## Pre-reqs
 1. node and npm (https://nodejs.org)
@@ -6,7 +8,7 @@
 3. compass: `gem install compass`
 
 ## Installation
-1. Clone repo: `git clone https://github.com/codeschool/SequelToSQLSoupToBits.git`
+1. Clone repo: `git clone https://github.com/codeschool/SequelToSQLWatchUsBuild.git`
 2. Install dependencies: `npm install && bower install`
 
 ## Run locally
