@@ -8,7 +8,7 @@
 3. compass: `gem install compass`
 
 ## Installation
-1. Clone repo: `git clone https://github.com/codeschool/SequelToSQLWatchUsBuild.git`
+1. Clone repo: `git clone https://github.com/codeschool/WatchUsBuild-MovieListingsAppWithSQL.git`
 2. Install dependencies: `npm install && bower install`
 
 ## Run locally
